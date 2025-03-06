@@ -128,7 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 62911125}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SP2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 78916038}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SP1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,13 +190,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 99670554}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Spawnpoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &99670554
 Transform:
   m_ObjectHideFlags: 0
@@ -228,7 +228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 265580402}
   - component: {fileID: 265580403}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AsteroidSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,7 +244,7 @@ Transform:
   m_GameObject: {fileID: 265580401}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1461882, y: 0.07671456, z: 0.05007819}
+  m_LocalPosition: {x: 8, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -291,13 +291,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 266820494}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CenterPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &266820494
 Transform:
   m_ObjectHideFlags: 0
@@ -325,7 +325,6 @@ GameObject:
   - component: {fileID: 484280317}
   - component: {fileID: 484280316}
   - component: {fileID: 484280315}
-  - component: {fileID: 484280319}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -416,58 +415,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!60 &484280319
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 484280314}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 1}
-      - {x: -0.95105654, y: 0.30901697}
-      - {x: -0.5877852, y: -0.80901706}
-      - {x: 0.58778536, y: -0.80901694}
-      - {x: 0.9510565, y: 0.30901712}
-  m_UseDelaunayMesh: 0
 --- !u!1 &963297700
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,7 +424,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 963297701}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SP3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -727,7 +674,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1419804626}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SP5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -760,7 +707,7 @@ GameObject:
   - component: {fileID: 1453866390}
   - component: {fileID: 1453866389}
   - component: {fileID: 1453866388}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -822,7 +769,7 @@ Transform:
   m_GameObject: {fileID: 1453866387}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -915,7 +862,7 @@ GameObject:
   - component: {fileID: 1906724859}
   - component: {fileID: 1906724860}
   - component: {fileID: 1906724862}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1050,7 +997,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3277462743937554949, guid: bb84634568523db4c83e5768a85b9197, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.27
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 3277462743937554949, guid: bb84634568523db4c83e5768a85b9197, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1093,8 +1040,16 @@ PrefabInstance:
       value: Asteroid
       objectReference: {fileID: 0}
     - target: {fileID: 7993487853538234402, guid: bb84634568523db4c83e5768a85b9197, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7993487853538234402, guid: bb84634568523db4c83e5768a85b9197, type: 3}
       propertyPath: m_TagString
       value: Asteroid
+      objectReference: {fileID: 0}
+    - target: {fileID: 8405090252686455854, guid: bb84634568523db4c83e5768a85b9197, type: 3}
+      propertyPath: m_Mass
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8405090252686455854, guid: bb84634568523db4c83e5768a85b9197, type: 3}
       propertyPath: m_Constraints
@@ -1114,7 +1069,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2072383082}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SP4
   m_TagString: Untagged
   m_Icon: {fileID: 0}

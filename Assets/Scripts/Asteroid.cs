@@ -1,24 +1,26 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
-    public float health = 4f; // Máu của thiên thạch
+    public float health = 4f;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision) // Dùng trigger cho đạn
     {
         if (collision.gameObject.CompareTag("Projectile"))
         {
-            health -= 1f; // Giảm máu thiên thạch khi trúng đạn
+            health -= 1f;
             Destroy(collision.gameObject); // Phá hủy đạn
-            Debug.Log("Projectile destroyed");
             if (health <= 0)
             {
                 Debug.Log("Asteroid destroyed!");
-                Destroy(gameObject); // Phá hủy thiên thạch khi hết máu
+                Destroy(gameObject);
             }
         }
-        else if (collision.gameObject.CompareTag("Player"))
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) // Giữ va chạm vật lý cho Player
+    {
+        if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Asteroid hit Player!");
         }

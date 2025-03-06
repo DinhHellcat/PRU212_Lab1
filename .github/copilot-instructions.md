@@ -4,5 +4,5 @@
 - Active game object:
   - Name: Asteroid
   - Tag: Asteroid
-  - Layer: Default
+  - Layer: AsteroidLayer
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
