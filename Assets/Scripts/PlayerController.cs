@@ -11,9 +11,12 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Sprite[] shipSprites; // Mảng 4 sprite tương ứng với 4 mức máu
     private SpriteRenderer spriteRenderer;
+
+    public Vector2 minBounds = new Vector2(-5f, -5f); // Giới hạn dưới-trái
+    public Vector2 maxBounds = new Vector2(5f, 5f);
     void Start()
     {
-        
+
     }
     void Update()
     {
@@ -21,8 +24,20 @@ public class PlayerController : MonoBehaviour
         UpdateSprite();
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-        Vector2 direction = new Vector2(horizontal, vertical);
-        transform.Translate(direction * Time.deltaTime * moveSpeed);
+        Vector2 direction = new Vector2(horizontal, vertical).normalized;
+        //transform.Translate(direction * Time.deltaTime * moveSpeed);
+
+        Vector2 moveStep = direction * Time.deltaTime * moveSpeed;
+
+        Vector2 newPosition = (Vector2)transform.position + moveStep;
+
+        // Giới hạn vị trí trong Bounds
+        newPosition.x = Mathf.Clamp(newPosition.x, minBounds.x, maxBounds.x);
+        newPosition.y = Mathf.Clamp(newPosition.y, minBounds.y, maxBounds.y);
+
+        // Di chuyển Player tới vị trí đã giới hạn
+        transform.position = newPosition;
+
 
         if (Input.GetKey(KeyCode.Space))
         {

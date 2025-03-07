@@ -16,6 +16,10 @@ public class Asteroid : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+        else if (collision.gameObject.CompareTag("Deadzone"))
+        {
+                Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision) // Giữ va chạm vật lý cho Player
