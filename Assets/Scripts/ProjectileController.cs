@@ -17,4 +17,7 @@ public class ProjectileController : MonoBehaviour
     {
         Destroy(gameObject, 2f);
     }
+
+    [SerializeField] private float damage = 1f; // Sát thương mặc định (cấp 1)
+    public float GetDamage() { return damage; }
 }
