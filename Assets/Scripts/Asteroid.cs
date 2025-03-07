@@ -3,6 +3,7 @@
 public class Asteroid : MonoBehaviour
 {
     public float health = 4f;
+    public bool isBigAsteroid;
 
     private void OnTriggerEnter2D(Collider2D collision) // Dùng trigger cho đạn
     {
@@ -12,21 +13,20 @@ public class Asteroid : MonoBehaviour
             Destroy(collision.gameObject); // Phá hủy đạn
             if (health <= 0)
             {
-                Debug.Log("Asteroid destroyed!");
+                if (isBigAsteroid)
+                {
+                    GameManager.Instance.AddScore(100); // +100 cho asteroid lớn
+                }
+                else
+                {
+                    GameManager.Instance.AddScore(50); // +50 cho asteroid nhỏ
+                }
                 Destroy(gameObject);
             }
         }
         else if (collision.gameObject.CompareTag("Deadzone"))
         {
                 Destroy(gameObject);
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision) // Giữ va chạm vật lý cho Player
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("Asteroid hit Player!");
         }
     }
 }

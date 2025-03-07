@@ -2,7 +2,7 @@
 - Project name: PRU212_Lab1
 - Unity version: Unity 6000.0.32f1
 - Active game object:
-  - Name: Player
-  - Tag: Player
-  - Layer: Default
+  - Name: Asteroid
+  - Tag: Asteroid
+  - Layer: AsteroidLayer
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
