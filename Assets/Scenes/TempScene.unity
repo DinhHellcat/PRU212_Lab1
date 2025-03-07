@@ -514,6 +514,11 @@ MonoBehaviour:
   firingPoint: {fileID: 1166335267}
   firingCooldown: 0.2
   health: 4
+  shipSprites:
+  - {fileID: 21300000, guid: bc8d962bdb9d81444ac486604c71423f, type: 3}
+  - {fileID: 21300000, guid: ea5375c5718f0f848a487effab234f40, type: 3}
+  - {fileID: 21300000, guid: 5d4dcdd88985e114fbf9fcced61cd3cd, type: 3}
+  - {fileID: 21300000, guid: dc9534a6a3653134e9e049cecd664243, type: 3}
 --- !u!212 &1381447264
 SpriteRenderer:
   m_ObjectHideFlags: 0
