@@ -2,27 +2,29 @@
 
 public class Asteroid : MonoBehaviour
 {
-    public float health = 4f;
+    public float health = 2f; // Giá trị mặc định, sẽ được cập nhật bởi AsteroidSpawner
     public bool isBigAsteroid;
-    [SerializeField] private GameObject[] powerUpPrefabs; // Mảng prefab của các vật phẩm
+    [SerializeField] private GameObject[] powerUpPrefabs;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Projectile"))
         {
-            health -= collision.GetComponent<ProjectileController>().GetDamage(); // Lấy sát thương từ đạn
+            float damage = collision.GetComponent<ProjectileController>().GetDamage();
+            health -= damage;
+            Debug.Log($"Asteroid hit! Health: {health}, Damage: {damage}");
             Destroy(collision.gameObject);
             if (health <= 0)
             {
                 if (isBigAsteroid)
                 {
                     GameManager.Instance.AddScore(100);
-                    SpawnPowerUp(0.3f); // 30% xác suất rớt vật phẩm với thiên thạch lớn
+                    SpawnPowerUp(0.3f);
                 }
                 else
                 {
                     GameManager.Instance.AddScore(50);
-                    SpawnPowerUp(0.2f); // 20% xác suất rớt vật phẩm với thiên thạch nhỏ
+                    SpawnPowerUp(0.2f);
                 }
                 Destroy(gameObject);
             }
@@ -61,9 +63,15 @@ public class Asteroid : MonoBehaviour
     private int GetRandomPowerUpIndex()
     {
         float roll = Random.value;
-        if (roll < 0.5f) return (int)PowerUp.PowerUpType.Star; // 50% Ngôi sao
-        else if (roll < 0.75f) return (int)PowerUp.PowerUpType.Shield; // 25% Lá chắn
-        else if (roll < 0.9f) return (int)PowerUp.PowerUpType.UpgradeShot; // 15% Nâng cấp đạn
-        else return (int)PowerUp.PowerUpType.Invincibility; // 10% Bất tử
+        if (roll < 0.5f) return (int)PowerUp.PowerUpType.Star;
+        else if (roll < 0.75f) return (int)PowerUp.PowerUpType.Shield;
+        else if (roll < 0.9f) return (int)PowerUp.PowerUpType.UpgradeShot;
+        else return (int)PowerUp.PowerUpType.Invincibility;
+    }
+
+    // Phương thức để cập nhật máu từ AsteroidSpawner
+    public void SetHealth(float newHealth)
+    {
+        health = newHealth;
     }
 }
