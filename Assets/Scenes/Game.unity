@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 56243742}
   - component: {fileID: 56243741}
   m_Layer: 5
-  m_Name: ScoreText
+  m_Name: GameOverScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -769,7 +769,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseCanvas: {fileID: 654643489}
   gameOverCanvas: {fileID: 664013755}
-  scoreText: {fileID: 56243741}
+  scoreText: {fileID: 1550054400}
+  gameOverScoreText: {fileID: 56243741}
   timeSurvivedText: {fileID: 41721270}
   asteroidSpawner: {fileID: 265580403}
 --- !u!1 &614821720
@@ -1023,6 +1024,7 @@ MonoBehaviour:
   pauseCanvas: {fileID: 0}
   gameOverCanvas: {fileID: 0}
   scoreText: {fileID: 0}
+  gameOverScoreText: {fileID: 0}
   timeSurvivedText: {fileID: 0}
   asteroidSpawner: {fileID: 0}
 --- !u!1 &664013755
@@ -1448,7 +1450,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c72e107c7f384b54eb7543d7043ee550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 1550054400}
 --- !u!1 &1381447262
 GameObject:
   m_ObjectHideFlags: 0

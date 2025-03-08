@@ -22,16 +22,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject shieldEffectPrefab;
     [SerializeField] private GameObject invincibilityEffectPrefab;
     private GameObject currentEffect;
-    private SpriteRenderer spriteRenderer;
 
-    [SerializeField] private GameUIManager gameUIManager; // Thêm để gọi ShowGameOver
+    [SerializeField] private GameUIManager gameUIManager;
 
     public Vector2 minBounds = new Vector2(-5f, -5f);
     public Vector2 maxBounds = new Vector2(5f, 5f);
 
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         UpdateSprite();
         UpdateHeartUI();
     }
@@ -118,17 +117,17 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Asteroid"))
         {
+            Destroy(collision.gameObject);
             if (!isShieldActive && !isInvincible)
             {
                 health -= 1f;
                 Debug.Log("Player health: " + health);
-                Destroy(collision.gameObject);
                 UpdateSprite();
                 UpdateHeartUI();
                 if (health <= 0)
                 {
                     Debug.Log("Player destroyed!");
-                    gameUIManager.ShowGameOver(); // Hiển thị Game Over
+                    gameUIManager.ShowGameOver();
                     Destroy(gameObject);
                 }
             }
@@ -145,7 +144,7 @@ public class PlayerController : MonoBehaviour
         int spriteIndex = Mathf.FloorToInt(health);
         if (spriteIndex >= 0 && spriteIndex < shipSprites.Length)
         {
-            spriteRenderer.sprite = shipSprites[spriteIndex];
+            GetComponent<SpriteRenderer>().sprite = shipSprites[spriteIndex];
         }
     }
 

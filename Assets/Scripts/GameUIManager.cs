@@ -4,17 +4,17 @@ using TMPro;
 
 public class GameUIManager : MonoBehaviour
 {
-    [SerializeField] private GameObject pauseCanvas; // Canvas chứa Pause Menu
-    [SerializeField] private GameObject gameOverCanvas; // Canvas chứa Game Over
-    [SerializeField] private TextMeshProUGUI scoreText; // Hiển thị điểm trong Game Over
-    [SerializeField] private TextMeshProUGUI timeSurvivedText; // Hiển thị thời gian sinh tồn
-    [SerializeField] private AsteroidSpawner asteroidSpawner; // Để lấy thời gian
+    [SerializeField] private GameObject pauseCanvas;
+    [SerializeField] private GameObject gameOverCanvas;
+    [SerializeField] private TextMeshProUGUI scoreText; // ScoreText trong game
+    [SerializeField] private TextMeshProUGUI gameOverScoreText; // ScoreText trong GameOverCanvas
+    [SerializeField] private TextMeshProUGUI timeSurvivedText;
+    [SerializeField] private AsteroidSpawner asteroidSpawner;
 
     private bool isPaused = false;
 
     void Start()
     {
-        // Đảm bảo cả hai Canvas ẩn khi bắt đầu
         if (pauseCanvas != null)
         {
             pauseCanvas.SetActive(false);
@@ -23,15 +23,16 @@ public class GameUIManager : MonoBehaviour
         {
             gameOverCanvas.SetActive(false);
         }
+        UpdateScoreDisplay(); // Cập nhật điểm ban đầu
     }
 
     void Update()
     {
-        // Tạm dừng game khi nhấn phím Escape
         if (Input.GetKeyDown(KeyCode.Escape) && !gameOverCanvas.activeSelf)
         {
             TogglePause();
         }
+        UpdateScoreDisplay(); // Cập nhật điểm liên tục
     }
 
     public void TogglePause()
@@ -52,19 +53,30 @@ public class GameUIManager : MonoBehaviour
         SceneManager.LoadScene("Menu");
     }
 
-    // Hiển thị Game Over Canvas khi người chơi thua
     public void ShowGameOver()
     {
-        Time.timeScale = 0f; // Tạm dừng game
+        Time.timeScale = 0f;
         gameOverCanvas.SetActive(true);
 
-        // Hiển thị điểm
-        scoreText.text = "Score: " + GameManager.Instance.Score.ToString();
+        // Hiển thị điểm trong Game Over
+        gameOverScoreText.text = "Score: " + GameManager.Instance.Score.ToString();
 
         // Hiển thị thời gian sinh tồn
         float difficultyTimer = asteroidSpawner.GetDifficultyTimer();
         float minutes = Mathf.FloorToInt(difficultyTimer / 60f);
         float seconds = Mathf.FloorToInt(difficultyTimer % 60f);
         timeSurvivedText.text = "Time Survived: " + string.Format("{0:00}:{1:00}", minutes, seconds);
+
+        // Lưu dữ liệu vào PlayerPrefs
+        GameManager.Instance.SaveGameData(difficultyTimer);
+    }
+
+    // Cập nhật hiển thị điểm số
+    private void UpdateScoreDisplay()
+    {
+        if (scoreText != null)
+        {
+            scoreText.text = "Score: " + GameManager.Instance.Score.ToString();
+        }
     }
 }
