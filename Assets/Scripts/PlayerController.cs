@@ -19,12 +19,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Sprite[] shipSprites;
     [SerializeField] private Sprite[] heartSprites;
     [SerializeField] private Image heartImage;
-    private SpriteRenderer spriteRenderer;
-
-    // Prefab hiệu ứng
     [SerializeField] private GameObject shieldEffectPrefab;
     [SerializeField] private GameObject invincibilityEffectPrefab;
-    private GameObject currentEffect; // Lưu trữ hiệu ứng hiện tại
+    private GameObject currentEffect;
+    private SpriteRenderer spriteRenderer;
+
+    [SerializeField] private GameUIManager gameUIManager; // Thêm để gọi ShowGameOver
 
     public Vector2 minBounds = new Vector2(-5f, -5f);
     public Vector2 maxBounds = new Vector2(5f, 5f);
@@ -91,27 +91,27 @@ public class PlayerController : MonoBehaviour
     public void ActivateShield(float duration)
     {
         isShieldActive = true;
-        SpawnEffect(shieldEffectPrefab); // Kích hoạt hiệu ứng Shield
+        SpawnEffect(shieldEffectPrefab);
         Invoke("DeactivateShield", duration);
     }
 
     private void DeactivateShield()
     {
         isShieldActive = false;
-        DestroyEffect(); // Tắt hiệu ứng
+        DestroyEffect();
     }
 
     public void ActivateInvincibility(float duration)
     {
         isInvincible = true;
-        SpawnEffect(invincibilityEffectPrefab); // Kích hoạt hiệu ứng Invincibility
+        SpawnEffect(invincibilityEffectPrefab);
         Invoke("DeactivateInvincibility", duration);
     }
 
     private void DeactivateInvincibility()
     {
         isInvincible = false;
-        DestroyEffect(); // Tắt hiệu ứng
+        DestroyEffect();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -122,11 +122,13 @@ public class PlayerController : MonoBehaviour
             {
                 health -= 1f;
                 Debug.Log("Player health: " + health);
+                Destroy(collision.gameObject);
                 UpdateSprite();
                 UpdateHeartUI();
                 if (health <= 0)
                 {
                     Debug.Log("Player destroyed!");
+                    gameUIManager.ShowGameOver(); // Hiển thị Game Over
                     Destroy(gameObject);
                 }
             }
@@ -135,7 +137,6 @@ public class PlayerController : MonoBehaviour
                 DeactivateShield();
                 Debug.Log("Shield absorbed damage!");
             }
-            Destroy(collision.gameObject);
         }
     }
 
@@ -157,17 +158,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Kích hoạt hiệu ứng
     private void SpawnEffect(GameObject effectPrefab)
     {
-        // Tắt hiệu ứng cũ (nếu có)
         DestroyEffect();
-
-        // Tạo hiệu ứng mới làm con của Player
         currentEffect = Instantiate(effectPrefab, transform.position, Quaternion.identity, transform);
     }
 
-    // Tắt hiệu ứng
     private void DestroyEffect()
     {
         if (currentEffect != null)

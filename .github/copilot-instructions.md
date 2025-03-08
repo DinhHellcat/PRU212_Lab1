@@ -2,7 +2,7 @@
 - Project name: PRU212_Lab1
 - Unity version: Unity 6000.0.32f1
 - Active game object:
-  - Name: AsteroidSpawner
+  - Name: Canvas
   - Tag: Untagged
-  - Layer: AsteroidLayer
+  - Layer: UI
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
