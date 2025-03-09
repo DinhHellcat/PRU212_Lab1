@@ -2245,6 +2245,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1523755151}
   m_CullTransparentMesh: 1
+--- !u!1 &1557551481
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1557551482}
+  - component: {fileID: 1557551483}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1557551482
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557551481}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1557551483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557551481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 253045d3d6601704aab4573a99e93105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgMusicSource: {fileID: 0}
+  sfxSource: {fileID: 0}
+  menuBGMusic: {fileID: 8300000, guid: 920a4424483671f43b2efc9276060c99, type: 3}
+  gameBGMusic: {fileID: 8300000, guid: aa590ccfdc03ada47877e22e155942c4, type: 3}
+  asteroidDestroySFX: {fileID: 8300000, guid: dd1515030f715434fa10ac11b6bad7c3, type: 3}
+  powerUpSFX: {fileID: 8300000, guid: 1dbe1618f055b1b41a04ece62928a9b2, type: 3}
+  buttonClickSFX: {fileID: 8300000, guid: 30b61d8700547ab47bbbc10b084594f9, type: 3}
+  shootSFX: {fileID: 8300000, guid: 1516326b62656734c8246561ea8e37b2, type: 3}
+  menuBGMusicVolume: 0.5
+  gameBGMusicVolume: 0.5
+  asteroidDestroySFXVolume: 0.2
+  powerUpSFXVolume: 0.2
+  buttonClickSFXVolume: 1
+  shootSFXVolume: 0.1
 --- !u!1 &1642993070
 GameObject:
   m_ObjectHideFlags: 0
@@ -2999,3 +3057,4 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 2129524647}
   - {fileID: 211154234}
+  - {fileID: 1557551482}

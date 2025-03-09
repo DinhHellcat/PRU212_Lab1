@@ -24,6 +24,11 @@ public class GameUIManager : MonoBehaviour
             gameOverCanvas.SetActive(false);
         }
         UpdateScoreDisplay(); // Cập nhật điểm ban đầu
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayGameBGMusic();
+        }
     }
 
     void Update()
@@ -37,6 +42,10 @@ public class GameUIManager : MonoBehaviour
 
     public void TogglePause()
     {
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayButtonClickSFX(); // Âm thanh nhấn nút
+        }
         isPaused = !isPaused;
         pauseCanvas.SetActive(isPaused);
         Time.timeScale = isPaused ? 0f : 1f;
@@ -49,12 +58,20 @@ public class GameUIManager : MonoBehaviour
 
     public void BackToMenu()
     {
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayButtonClickSFX(); // Âm thanh nhấn nút
+        }
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
     }
 
     public void ShowGameOver()
     {
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.StopBGMusic(); // Tắt nhạc nền khi game over
+        }
         Time.timeScale = 0f;
         gameOverCanvas.SetActive(true);
 

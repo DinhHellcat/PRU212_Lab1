@@ -12,6 +12,11 @@ public class MainMenuManager : MonoBehaviour
     {
         highScorePanel.SetActive(false);
         DisplayHighScores();
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayMenuBGMusic();
+        }
     }
 
     public void PlayGame()
@@ -22,11 +27,19 @@ public class MainMenuManager : MonoBehaviour
             GameManager.Instance.ResetScore(); // Đặt lại điểm về 0
             Debug.Log("Score reset to 0 before starting new game.");
         }
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayButtonClickSFX(); // Âm thanh nhấn nút
+        }
         SceneManager.LoadScene("Game");
     }
 
     public void QuitGame()
     {
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayButtonClickSFX(); // Âm thanh nhấn nút
+        }
         Application.Quit();
         Debug.Log("Game Quit");
     }
@@ -51,6 +64,10 @@ public class MainMenuManager : MonoBehaviour
 
     public void ClearData()
     {
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayButtonClickSFX(); // Âm thanh nhấn nút
+        }
         PlayerPrefs.DeleteAll();
         DisplayHighScores();
         Debug.Log("All game data cleared!");
@@ -58,6 +75,10 @@ public class MainMenuManager : MonoBehaviour
 
     public void ToggleHighScorePanel()
     {
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayButtonClickSFX(); // Âm thanh nhấn nút
+        }
         bool isActive = highScorePanel.activeSelf;
         highScorePanel.SetActive(!isActive);
     }

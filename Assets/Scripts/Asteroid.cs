@@ -26,6 +26,10 @@ public class Asteroid : MonoBehaviour
                     GameManager.Instance.AddScore(50);
                     SpawnPowerUp(0.2f);
                 }
+                if (AudioManager.Instance != null)
+                {
+                    AudioManager.Instance.PlayAsteroidDestroySFX(); // Âm thanh phá hủy thiên thạch
+                }
                 Destroy(gameObject);
             }
         }

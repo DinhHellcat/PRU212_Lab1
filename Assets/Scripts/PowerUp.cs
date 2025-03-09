@@ -69,6 +69,10 @@ public class PowerUp : MonoBehaviour
                 Debug.Log("Invincibility and faster firing activated for 5 seconds!");
                 break;
         }
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayPowerUpSFX(); // Âm thanh nhận power-up
+        }
     }
 
     // Phương thức để gán sprite dựa trên type (sẽ được gọi từ Asteroid)
