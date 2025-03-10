@@ -2,13 +2,16 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - Projectile
+  - Asteroid
+  - Deadzone
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - AsteroidLayer
   - Water
   - UI
   - 
@@ -41,3 +44,17 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 162361827
+    locked: 0
+  - name: Player
+    uniqueID: 2867937149
+    locked: 0
+  - name: Effect
+    uniqueID: 475429345
+    locked: 0
+  - name: Panel
+    uniqueID: 1980982723
+    locked: 0
+  m_RenderingLayers:
+  - Default
