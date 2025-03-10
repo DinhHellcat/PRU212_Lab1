@@ -1742,7 +1742,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d21f22626a6ec234a9c23ff25d9cc615, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fb2a6b513b9fe7e4e944d19e8eea1175, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2299,10 +2299,10 @@ MonoBehaviour:
   shootSFX: {fileID: 8300000, guid: 1516326b62656734c8246561ea8e37b2, type: 3}
   menuBGMusicVolume: 0.5
   gameBGMusicVolume: 0.5
-  asteroidDestroySFXVolume: 0.2
-  powerUpSFXVolume: 0.2
+  asteroidDestroySFXVolume: 0.3
+  powerUpSFXVolume: 0.3
   buttonClickSFXVolume: 1
-  shootSFXVolume: 0.1
+  shootSFXVolume: 0.3
 --- !u!1 &1642993070
 GameObject:
   m_ObjectHideFlags: 0
@@ -2535,7 +2535,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2007849137
 RectTransform:
   m_ObjectHideFlags: 0
